@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://aisocietyiitj.github.io/blogs-raid',
-	base: 'blogs-raid',
+	site: 'https://aisocietyiitj.github.io',
 	integrations: [mdx(), sitemap()],
 });
