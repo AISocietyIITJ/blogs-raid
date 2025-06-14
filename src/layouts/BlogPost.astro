@@ -1,85 +1,151 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  tags,
+  authors,
+  featured,
+} = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body>
+    <Header />
+
+    <main class="min-h-screen py-8 md:py-12">
+      <article>
+        <!-- Content Container -->
+        <div
+          class="mx-auto mt-10 max-w-4xl px-6 pb-8 md:px-8 md:pb-12 lg:px-12"
+        >
+          <!-- Header Section with Conservative Scaling -->
+          <header class="mt-6 md:mt-10">
+            <!-- Featured Badge -->
+            {
+              featured && (
+                <div class="mb-3 md:mb-4">
+                  <span class="inline-block rounded-full bg-yellow-500 px-3 py-1.5 text-xs font-semibold text-white">
+                    ✨ Featured
+                  </span>
+                </div>
+              )
+            }
+
+            <!-- Title -->
+            <h1
+              class="mb-4 text-3xl leading-tight font-bold text-gray-900 md:mb-5 md:text-4xl lg:mb-6 lg:text-5xl"
+            >
+              {title}
+            </h1>
+
+            <!-- Description -->
+            {
+              description && (
+                <div class="mb-6 border-l-4 border-yellow-500 pl-4 md:mb-7 md:pl-5 lg:mb-8 lg:pl-6">
+                  <p class="text-base leading-relaxed font-light text-gray-600 md:text-lg lg:text-xl">
+                    {description}
+                  </p>
+                </div>
+              )
+            }
+
+            <!-- Meta Information - Minimal scaling -->
+            <div class="mb-4 flex flex-wrap items-center gap-3 font-light">
+              <time class="text-sm text-gray-600 md:text-sm">
+                <FormattedDate date={pubDate} />
+              </time>
+
+              {
+                authors && authors.length > 0 && (
+                  <div class="text-sm text-gray-600 md:text-sm">
+                    <span>By</span>
+                    {authors.map((author, index) => (
+                      <span>
+                        {author.url ? (
+                          <a
+                            href={author.url}
+                            class="ml-1 transition-colors hover:text-gray-900"
+                          >
+                            {author.name}
+                          </a>
+                        ) : (
+                          <span class="ml-1">{author.name}</span>
+                        )}
+                        {index < authors.length - 1 && ", "}
+                      </span>
+                    ))}
+                  </div>
+                )
+              }
+
+              {
+                updatedDate && (
+                  <div class="text-xs text-gray-500">
+                    Updated <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </div>
+
+            <!-- Tags -->
+            {
+              tags && tags.length > 0 && (
+                <div class="flex flex-wrap gap-2">
+                  {tags.map((tag) => (
+                    <span class="rounded-md bg-gray-50 px-2 py-1 text-xs font-normal text-gray-500 capitalize">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )
+            }
+          </header>
+        </div>
+
+        {
+          heroImage && (
+            <div class="mb-12 w-full md:mb-20 lg:mb-30">
+              <div class="mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
+                <div class="relative overflow-hidden rounded-lg shadow-xl">
+                  <img
+                    class="h-auto w-full object-cover"
+                    src={heroImage}
+                    alt={title}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          )
+        }
+
+        <!-- Blog Content Container -->
+        <div class="mx-auto my-10 max-w-4xl px-6 md:px-8 lg:px-12">
+          <!-- Blog Content -->
+          <div
+            class="prose prose-lg prose-gray max-w-none space-y-6 leading-relaxed text-gray-700"
+          >
+            <slot />
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <Footer />
+  </body>
 </html>
