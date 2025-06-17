@@ -77,7 +77,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         animation: fadeInUp 1s ease-out;
       }
       .gradient-text {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #030e3f 0%, #7542C7 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -173,15 +173,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
           >
             <a
               href={import.meta.env.BASE_URL + "/blog"}
-              class="animate-glow transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700"
+              class="animate-glow text-white transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700"
             >
               Explore Blogs 🚀
             </a>
-            <button
+            <a href ="https://www.linkedin.com/company/raid-iitj"
+              target="_blank"
+              rel="noopener noreferrer"
               class="rounded-full border-2 border-gray-600 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:border-blue-400 hover:text-blue-400"
             >
               Join Our Community
-            </button>
+          </a>
           </div>
         </div>
       </div>
