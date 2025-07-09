@@ -1,3 +1,16 @@
+---
+title: "AI-based Course Recommender"
+description: "A course recommendation system using a Reactjs frontend, FastAPI and PostgreSQL backend, BERT for semantic understanding, and Qwen-14B for LLM reasoning and recommendation."
+pubDate: "Jul 09 2025"
+heroImage: "/blogs-raid/public/demo_photo_neurolearn.jpg"
+tags: ["reactjs", "llm", "fastapi", "bert", "qwen", "course recommendation"]
+authors:
+  - name: "WARP Amazon Team"
+    url: "https://github.com/AISocietyIITJ/WARP-Amazon"  
+draft: false
+featured: true
+---
+
 # NeuroLearn: AI-Driven Course Recommender System
 
 ## Introduction
