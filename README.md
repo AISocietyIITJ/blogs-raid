@@ -1,68 +1,170 @@
-# Astro Starter Kit: Blog
+# RAID Blogs
 
-```sh
-npm create astro@latest -- --template blog
+[Live Site](https://aisocietyiitj.github.io/blogs-raid/)
+
+The official blog of RAID, the AI & ML society at IIT Jodhpur. Built with [Astro](https://astro.build/), this site hosts articles, tutorials, and updates on artificial intelligence, machine learning, and data science from the RAID community.
+
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Project Structure](#project-structure)
+- [Credits](#credits)
+
+---
+
+## Features
+
+- Minimal, performant Astro-based blog
+- SEO-friendly (OpenGraph, canonical URLs, sitemap, and RSS feed)
+- Markdown & MDX support for writing posts
+- Styled with TailwindCSS
+- Responsive and accessible design
+
+---
+
+## Installation
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+
+### Setup Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/AISocietyIITJ/blogs-raid.git
+   cd blogs-raid
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The site should now be available at [http://localhost:4321](http://localhost:4321).
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+5. **Preview your build**
+   ```bash
+   npm run preview
+   ```
+
+---
+
+## Contribution Guidelines
+
+We welcome contributions! Please follow these guidelines to keep our community constructive and inclusive.
+
+### Code of Conduct
+
+- Be respectful and considerate.
+- Assume good intent and offer constructive feedback.
+- Harassment or inappropriate behavior will not be tolerated.
+
+### How to Contribute
+
+#### 1. Fork the repository
+
+Click “Fork” on the top right of the main repository page.
+
+#### 2. Clone your fork
+
+```bash
+git clone https://github.com/YOUR-USERNAME/blogs-raid.git
+cd blogs-raid
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+#### 3. Create a new branch
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Name your branch descriptively:
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+```bash
+git checkout -b fix/correct-footer-link
+# or
+git checkout -b feat/add-new-blog-template
+```
 
-Features:
+#### 4. Make your changes
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- Keep code clean and comment where needed.
+- Follow existing code style.
 
-## 🚀 Project Structure
+#### 5. Commit with a detailed message
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+git commit -m "fix: corrected footer Github link to point to organization"
+```
+
+#### 6. Push to your fork
+
+```bash
+git push origin your-branch-name
+```
+
+#### 7. Open a Pull Request (PR)
+
+- Go to your fork on GitHub and click “Compare & pull request”.
+- Fill in a **detailed title** and **thorough description** of your changes.
+- Be polite and constructive in your comments and code reviews.
+
+**Example of a good PR title and description:**
+
+> **Title:**  
+> `fix: correct LinkedIn link in footer`
+>
+> **Description:**  
+> The footer LinkedIn icon was pointing to a personal profile. Updated it to point to the RAID IITJ organization page. Also added a hover effect for better UX.
+
+**All PRs must:**
+- Be respectful and constructive.
+- Clearly describe what and why you changed.
+- Reference related issues (e.g., `Closes #6`).
+
+---
+
+## Project Structure
 
 ```text
 ├── public/
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
 ├── astro.config.mjs
-├── README.md
 ├── package.json
+├── README.md
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **src/pages/**: Route-based content (blog, about, etc.)
+- **src/components/**: Reusable UI components
+- **src/layouts/**: Blog and page layouts
+- **src/content/**: Markdown posts
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Credits
 
-Any static assets, like images, can be placed in the `public/` directory.
+This project is based on the [Astro Blog Starter Kit](https://github.com/withastro/astro/tree/latest/examples/blog) and inspired by [Bear Blog](https://github.com/HermanMartinus/bearblog/).
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+For more, visit [Astro documentation](https://docs.astro.build).
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+> _Maintained by RAID, IIT Jodhpur. Contributions welcome!_
