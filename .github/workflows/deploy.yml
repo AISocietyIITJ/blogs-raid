@@ -20,32 +20,22 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v3
-        with:
-          version: 10.13.1
-
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
-
-      - name: Clear PNPM store
-        run: pnpm store prune
-
-      - name: Approve build scripts
-        run: pnpm approve-builds --all
+          cache: 'npm'
+          cache-dependency-path: package-lock.json  
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci --frozen-lockfile 
 
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
-          path: .  # The root location of your Astro project
+          path: .  
           node-version: 20
-          package-manager: pnpm@10.13.1
+          package-manager: npm@latest  
 
   deploy:
     needs: build
