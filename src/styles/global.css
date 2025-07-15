@@ -5,9 +5,7 @@
  */
 
 @import "tailwindcss";
-@import "tailwindcss";
 @import "katex/dist/katex.min.css"; 
-
 
 :root {
   --accent: #2337ff;

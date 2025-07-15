@@ -15,8 +15,9 @@
     "@astrojs/sitemap": "^3.4.0",
     "@tailwindcss/vite": "^4.1.10",
     "astro": "^5.8.1",
-    "katex": "^0.16.22",
     "rehype-katex": "^7.0.1",
+    "rehype-mdx-import-media": "^1.2.0",
+    "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "tailwindcss": "^4.1.10"
   },
