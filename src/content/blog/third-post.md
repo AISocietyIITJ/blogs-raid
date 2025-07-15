@@ -5,7 +5,7 @@ pubDate: "Jul 22 2022"
 heroImage: "/blogs-raid/blog-placeholder-2.jpg"
 tags: ["astro", "blogging", "learning"]
 authors: [{ name: "John Doe", url: "https://johndoe.com" }]
-draft: false
+draft: true
 featured: false
 ---
 
