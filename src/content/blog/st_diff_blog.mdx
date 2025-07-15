@@ -6,8 +6,9 @@ heroImage: "/blogs-raid/st_diff_blog/hero_st_diff.png"
 tags: ["diffusion", "stable-diffusion", "generative-models", "deep-learning", "unet"]
 authors:
   - name: "Sonam Sikarwar"
-    
+    url: "https://www.linkedin.com/in/sonam-sikarwar-7965a82b4/" 
   - name: "Arpita Deshmukh"
+    url: "https://www.linkedin.com/in/arpita-deshmukh-9ba60428a/" 
     
 
 draft: false
@@ -32,7 +33,7 @@ Forward flow: Clean data → progressively noisier data (like adding Gaussian no
 Reverse flow: Noise → clean data (like denoising step by step).
 
 A vector field describes the direction you should move in to go from one distribution to another. So, flow matching means learning a vector field (e.g., gradients or velocities) to "reverse" the noise trajectory and recover the data.
-*[Learn more](https://diffusionflow.github.io/)* 
+<a href="https://diffusionflow.github.io/" target="_blank">Learn more</a>
 
 In diffusion models:
 
@@ -94,9 +95,7 @@ One of the biggest challenges with earlier diffusion models was speed. They oper
 Stable Diffusion solves this by using a **latent diffusion model** ;it doesn't operate in pixel space but in a smaller **latent space** (about 48× smaller), making everything faster and more efficient.
 
 
-## ARCHITECTURE OVERVIEW OF SD :
-
-
+## Architecture Overview of SD :
 ![Architecture](/blogs-raid/st_diff_blog/image2image.png)
 
 
@@ -135,7 +134,7 @@ You could also say:
 
 > CLIP is a model that understands images and text together. It learns to match a picture with the right caption by putting them close in a shared space, making it useful for tasks like image search or classification using text.
 
-If you are curious you can read more about CLIP in this [article](https://viso.ai/deep-learning/clip-machine-learning/)
+If you are curious you can read more about CLIP in this <a href="https://viso.ai/deep-learning/clip-machine-learning/" target="_blank">article</a>.
 
 ### Scheduler
 
@@ -367,8 +366,3 @@ Understanding each component is key to appreciating how the model works and what
 
 
 Thanks for reading. If you want to dive deeper, explore the math behind diffusion models, experiment with open-source implementations, or try generating your own images with Hugging Face Spaces or Stable Diffusion APIs.
-
-
-
-
-
