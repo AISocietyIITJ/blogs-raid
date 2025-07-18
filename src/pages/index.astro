@@ -1,9 +1,10 @@
---- 
-import BaseHead from "../components/BaseHead.astro"; 
-import Header from "../components/Header.astro"; 
-import Footer from "../components/Footer.astro"; 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"; 
---- 
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,24 +14,53 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     />
     <style>
       @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
+        0%, 
+        100% { 
+          transform: translateY(0px); 
+        }
+        50% { 
+          transform: translateY(-20px); 
+        }
       }
       @keyframes glow {
-        0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-        50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+        0%, 
+        100% { 
+          box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); 
+          }
+        50% { 
+          box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); 
+          }
       }
-      @keyframes slideInLeft {
-        from { transform: translateX(-100px); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
+      @keyframes slideInLeft 
+      {
+        from { 
+          transform: translateX(-100px);
+          opacity: 0; 
+        }
+        to { 
+          transform: translateX(0); 
+          opacity: 1; 
+        }
       }
       @keyframes slideInRight {
-        from { transform: translateX(100px); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
+        from { 
+          transform: translateX(100px); 
+          opacity: 0; 
+        }
+        to { 
+          transform: translateX(0); 
+          opacity: 1; 
+        }
       }
       @keyframes fadeInUp {
-        from { transform: translateY(50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
+        from { 
+          transform: translateY(50px); 
+          opacity: 0; 
+        }
+        to { 
+          transform: translateY(0); 
+          opacity: 1; 
+        }
       }
       @keyframes shimmer {
         0% { background-position: -500%; }
@@ -58,13 +88,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       .typewriter-container {
         overflow: hidden;
         white-space: nowrap;
-        border-right: 2px solid #47FDFE;
+        border-right: 2px solid #47FDFE; /* previously #00e0ff */
         width: 0;
         animation: typewriter 4s steps(30) infinite;
         font-family: monospace;
         font-size: 1.2rem;
         color: #7dd3fc;
       }
+
       .button-tilt:hover {
         transform: perspective(600px) rotateX(4deg) rotateY(-4deg) scale(1.05);
         box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
@@ -73,17 +104,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         transition: all 0.3s ease;
       }
 
-      /* Neural Grid Update */
+      /* Animated Neural Grid Background */
       .neural-grid::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image:
-          linear-gradient(rgba(71, 253, 254, 0.12) 1px, transparent 1px),
-          linear-gradient(to right, rgba(71, 253, 254, 0.12) 1px, transparent 1px);
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        /* Enhanced visibility from 0.08 → 0.12 */
+        background-image: linear-gradient(rgba(71, 253, 254, 0.12) 1px, transparent 1px), 
+                          linear-gradient(to right, rgba(71, 253, 254, 0.12) 1px, transparent 1px);
         background-size: 40px 40px;
         animation: scroll-grid 40s linear infinite;
         z-index: 0;
@@ -93,11 +122,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         100% { background-position: 1000px 1000px; }
       }
 
-      .animate-float { animation: float 6s ease-in-out infinite; }
-      .animate-glow { animation: glow 2s ease-in-out infinite; }
-      .animate-slide-left { animation: slideInLeft 1s ease-out; }
-      .animate-slide-right { animation: slideInRight 1s ease-out; }
-      .animate-fade-up { animation: fadeInUp 1s ease-out; }
+      .animate-float { 
+        animation: float 6s ease-in-out infinite; 
+      }
+      .animate-glow { 
+        animation: glow 2s ease-in-out infinite;
+      }
+      .animate-slide-left { 
+        animation: slideInLeft 1s ease-out; 
+      }
+      .animate-slide-right { 
+        animation: slideInRight 1s ease-out; 
+      }
+      .animate-fade-up { 
+        animation: fadeInUp 1s ease-out; 
+      }
 
       .gradient-text {
         background: linear-gradient(90deg, 00e0ff, #9d00ff);
@@ -114,14 +153,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </head>
   <body>
     <Header />
+    
+    <!-- Hero Section Starts -->
     <section class="relative min-h-screen bg-[#040613] text-white overflow-hidden flex items-center justify-center pt-16 neural-grid">
+      
+      <!-- ✅ Improved Glowing Background Circles (Logo Palette) -->
+      <div class="absolute top-[10%] left-[5%] h-72 w-72 bg-[#FEAE51] rounded-full opacity-15 blur-3xl z-0"></div> <!-- Orange-Gold -->
+      <div class="absolute bottom-[15%] right-[10%] h-80 w-80 bg-[#47FDFE] rounded-full opacity-15 blur-3xl z-0"></div> <!-- Cyan -->
+      <div class="absolute top-[35%] left-[60%] h-64 w-64 bg-[#9d00ff] rounded-full opacity-10 blur-2xl z-0"></div> <!-- Purple -->
 
-      <!-- ✅ Improved Glowing Circles -->
-      <div class="absolute top-[10%] left-[5%] h-72 w-72 bg-[#FEAE51] rounded-full opacity-15 blur-3xl z-0"></div>
-      <div class="absolute bottom-[15%] right-[10%] h-80 w-80 bg-[#47FDFE] rounded-full opacity-15 blur-3xl z-0"></div>
-      <div class="absolute top-[35%] left-[60%] h-64 w-64 bg-[#9d00ff] rounded-full opacity-10 blur-2xl z-0"></div>
-
-      <!-- Particles -->
+      <!-- Subtle Floating Magic Particles -->
       <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="particle absolute top-20 left-10 h-3 w-3 blur-md" style="background-color: #FEAE51;"></div>
         <div class="particle absolute top-1/3 right-20 h-2 w-2 blur-md" style="background-color: #FEAE51;"></div>
@@ -129,21 +170,27 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <div class="particle absolute bottom-10 right-1/3 h-3 w-3 blur-md" style="background-color: #47FDFE;"></div>
       </div>
 
-      <!-- 🧠 Hero Content -->
+      <!-- Hero Content -->
       <div class="relative z-10 flex flex-col items-center justify-center text-center px-4">
+
         <div class="relative mb-6 animate-float group">
           <div class="absolute inset-0 rounded-full blur-xl bg-blue-500 opacity-10 group-hover:opacity-30 transition duration-300"></div>
           <div class="text-7xl md:text-8xl relative z-10 group-hover:drop-shadow-[0_0_25px_rgba(0,200,255,0.6)] transition duration-300">
             🤖
           </div>
         </div>
-        <h1 class="text-6xl md:text-8xl font-extrabold shimmer-text animate-fade-up">RAID</h1>
+
+        <h1 class="text-6xl md:text-8xl font-extrabold shimmer-text animate-fade-up">
+          RAID
+        </h1>
+
         <p class="mt-4 text-2xl md:text-3xl font-medium text-gray-300 animate-slide-left">
           Realm of AI and Data
         </p>
         <p class="mt-4 max-w-xl text-lg text-gray-400 animate-slide-right">
           The Artificial Intelligence and Machine Learning society of IIT Jodhpur
         </p>
+
         <div class="mt-4 h-6">
           <div class="typewriter-container inline-block">
             Projects. Research. Innovation. Tutorials. 🚀
@@ -155,6 +202,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg transition hover:scale-105 button-tilt transition-3d">
             Explore Blogs 🚀
           </a>
+
           <a href="https://www.linkedin.com/company/raid-iitj"
             target="_blank"
             rel="noopener noreferrer"
@@ -163,7 +211,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
           </a>
         </div>
       </div>
+
+      <!-- Scroll Indicator (optional) -->
+      <!-- 
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+      -->
+
     </section>
+    <!-- Hero Section Ends -->
+
     <Footer />
   </body>
 </html>
