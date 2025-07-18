@@ -1,10 +1,9 @@
----
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
----
-
+--- 
+import BaseHead from "../components/BaseHead.astro"; 
+import Header from "../components/Header.astro"; 
+import Footer from "../components/Footer.astro"; 
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"; 
+--- 
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,92 +13,99 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     />
     <style>
       @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
       }
       @keyframes glow {
-        0%,
-        100% {
-          box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-        }
-        50% {
-          box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
-        }
+        0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+        50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
       }
       @keyframes slideInLeft {
-        from {
-          transform: translateX(-100px);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
+        from { transform: translateX(-100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
       }
       @keyframes slideInRight {
-        from {
-          transform: translateX(100px);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
+        from { transform: translateX(100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
       }
       @keyframes fadeInUp {
-        from {
-          transform: translateY(50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
       }
-      .animate-float {
+      @keyframes shimmer {
+        0% { background-position: -500%; }
+        100% { background-position: 500%; }
+      }
+      .shimmer-text {
+        background: linear-gradient(90deg, #00e0ff, #9d00ff, #00e0ff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 3s linear infinite;
+      }
+      .particle {
         animation: float 6s ease-in-out infinite;
+        border-radius: 9999px;
+        opacity: 0.1;
+        pointer-events: none;
       }
-      .animate-glow {
-        animation: glow 2s ease-in-out infinite;
+      @keyframes typewriter {
+        0% { width: 0 }
+        30% { width: 100% }
+        60% { width: 100% }
+        100% { width: 0 }
       }
-      .animate-slide-left {
-        animation: slideInLeft 1s ease-out;
+      .typewriter-container {
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid #47FDFE;
+        width: 0;
+        animation: typewriter 4s steps(30) infinite;
+        font-family: monospace;
+        font-size: 1.2rem;
+        color: #7dd3fc;
       }
-      .animate-slide-right {
-        animation: slideInRight 1s ease-out;
+      .button-tilt:hover {
+        transform: perspective(600px) rotateX(4deg) rotateY(-4deg) scale(1.05);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
       }
-      .animate-fade-up {
-        animation: fadeInUp 1s ease-out;
+      .transition-3d {
+        transition: all 0.3s ease;
       }
+
+      /* Neural Grid Update */
+      .neural-grid::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+          linear-gradient(rgba(71, 253, 254, 0.12) 1px, transparent 1px),
+          linear-gradient(to right, rgba(71, 253, 254, 0.12) 1px, transparent 1px);
+        background-size: 40px 40px;
+        animation: scroll-grid 40s linear infinite;
+        z-index: 0;
+      }
+      @keyframes scroll-grid {
+        0% { background-position: 0 0; }
+        100% { background-position: 1000px 1000px; }
+      }
+
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      .animate-glow { animation: glow 2s ease-in-out infinite; }
+      .animate-slide-left { animation: slideInLeft 1s ease-out; }
+      .animate-slide-right { animation: slideInRight 1s ease-out; }
+      .animate-fade-up { animation: fadeInUp 1s ease-out; }
+
       .gradient-text {
-        background: linear-gradient(135deg, #030e3f 0%, #7542C7 100%);
+        background: linear-gradient(90deg, 00e0ff, #9d00ff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-      .neural-bg {
-        background-image:
-          radial-gradient(
-            circle at 20% 80%,
-            rgba(120, 119, 198, 0.3) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(255, 119, 198, 0.3) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 40% 40%,
-            rgba(120, 219, 255, 0.3) 0%,
-            transparent 50%
-          );
-      }
+
       .card-hover:hover {
         transform: translateY(-10px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
@@ -108,92 +114,55 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </head>
   <body>
     <Header />
-    <!-- <main>
-      <h1>🤖 Welcome to RAID</h1>
-      <p>
-        This is the official blog of <strong>RAID: Realm of AI and Data</strong
-        >, the Artificial Intelligence and Machine Learning society of <a
-          href="https://iitj.ac.in">IIT Jodhpur</a
-        >. Here, we share knowledge, projects, tutorials, and breakthroughs in
-        the ever-evolving field of AI & ML.
-      </p>
-      <p>
-        Whether you're a curious beginner or an experienced practitioner, RAID
-        is a space to collaborate, learn, and lead AI innovation on campus and
-        beyond.
-      </p>
-      <p>
-        We’re excited to have you on board. Let’s decode the future together,
-        one model at a time. 🚀
-      </p>
-    </main> -->
-    <section
-      class="neural-bg relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
-    >
-      <!-- Animated Background Elements -->
-      <div class="absolute inset-0 opacity-20">
-        <div
-          class="absolute top-20 left-10 h-2 w-2 animate-ping rounded-full bg-blue-400"
-        >
-        </div>
-        <div
-          class="absolute top-40 right-20 h-3 w-3 animate-pulse rounded-full bg-purple-400"
-        >
-        </div>
-        <div
-          class="absolute bottom-40 left-20 h-2 w-2 animate-bounce rounded-full bg-pink-400"
-        >
-        </div>
-        <div
-          class="absolute right-10 bottom-20 h-4 w-4 animate-ping rounded-full bg-cyan-400"
-        >
-        </div>
+    <section class="relative min-h-screen bg-[#040613] text-white overflow-hidden flex items-center justify-center pt-16 neural-grid">
+
+      <!-- ✅ Improved Glowing Circles -->
+      <div class="absolute top-[10%] left-[5%] h-72 w-72 bg-[#FEAE51] rounded-full opacity-15 blur-3xl z-0"></div>
+      <div class="absolute bottom-[15%] right-[10%] h-80 w-80 bg-[#47FDFE] rounded-full opacity-15 blur-3xl z-0"></div>
+      <div class="absolute top-[35%] left-[60%] h-64 w-64 bg-[#9d00ff] rounded-full opacity-10 blur-2xl z-0"></div>
+
+      <!-- Particles -->
+      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="particle absolute top-20 left-10 h-3 w-3 blur-md" style="background-color: #FEAE51;"></div>
+        <div class="particle absolute top-1/3 right-20 h-2 w-2 blur-md" style="background-color: #FEAE51;"></div>
+        <div class="particle absolute bottom-24 left-1/4 h-2 w-2 blur-md" style="background-color: #FE7A45;"></div>
+        <div class="particle absolute bottom-10 right-1/3 h-3 w-3 blur-md" style="background-color: #47FDFE;"></div>
       </div>
 
-      <div
-        class="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8"
-      >
-        <div class="animate-fade-up">
-          <div class="animate-float mb-8 text-8xl">🤖</div>
-          <h1 class="gradient-text mb-6 text-6xl font-bold md:text-8xl">
-            RAID
-          </h1>
-          <p class="animate-slide-left mb-4 text-2xl text-gray-300 md:text-3xl">
-            Realm of AI and Data
-          </p>
-          <p
-            class="animate-slide-right mx-auto mb-12 max-w-3xl text-lg text-gray-400 md:text-xl"
-          >
-            The Artificial Intelligence and Machine Learning society of IIT
-            Jodhpur
-          </p>
-
-          <div
-            class="flex flex-col items-center justify-center gap-6 sm:flex-row"
-          >
-            <a
-              href={import.meta.env.BASE_URL + "/blog"}
-              class="animate-glow text-white transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700"
-            >
-              Explore Blogs 🚀
-            </a>
-            <a href ="https://www.linkedin.com/company/raid-iitj"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="rounded-full border-2 border-gray-600 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:border-blue-400 hover:text-blue-400"
-            >
-              Join Our Community
-          </a>
+      <!-- 🧠 Hero Content -->
+      <div class="relative z-10 flex flex-col items-center justify-center text-center px-4">
+        <div class="relative mb-6 animate-float group">
+          <div class="absolute inset-0 rounded-full blur-xl bg-blue-500 opacity-10 group-hover:opacity-30 transition duration-300"></div>
+          <div class="text-7xl md:text-8xl relative z-10 group-hover:drop-shadow-[0_0_25px_rgba(0,200,255,0.6)] transition duration-300">
+            🤖
           </div>
         </div>
-      </div>
+        <h1 class="text-6xl md:text-8xl font-extrabold shimmer-text animate-fade-up">RAID</h1>
+        <p class="mt-4 text-2xl md:text-3xl font-medium text-gray-300 animate-slide-left">
+          Realm of AI and Data
+        </p>
+        <p class="mt-4 max-w-xl text-lg text-gray-400 animate-slide-right">
+          The Artificial Intelligence and Machine Learning society of IIT Jodhpur
+        </p>
+        <div class="mt-4 h-6">
+          <div class="typewriter-container inline-block">
+            Projects. Research. Innovation. Tutorials. 🚀
+          </div>
+        </div>
 
-      <!-- Scroll Indicator -->
-      <!-- <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div> -->
+        <div class="mt-10 flex flex-col sm:flex-row gap-6 animate-fade-up">
+          <a href={import.meta.env.BASE_URL + "/blog"}
+            class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg transition hover:scale-105 button-tilt transition-3d">
+            Explore Blogs 🚀
+          </a>
+          <a href="https://www.linkedin.com/company/raid-iitj"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-8 py-3 rounded-full border-2 border-gray-500 text-gray-300 hover:border-blue-500 hover:text-blue-500 font-semibold text-lg transition hover:scale-105 button-tilt transition-3d">
+            Join Our Community
+          </a>
+        </div>
+      </div>
     </section>
     <Footer />
   </body>
