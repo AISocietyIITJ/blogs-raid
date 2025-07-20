@@ -8,15 +8,17 @@ The official blog of **RAID**, the AI & ML society at **IIT Jodhpur**. Built wit
 
 ## 📚 Table of Contents
 
-- [✨ Features](#features)
-- [🛠️ Installation](#installation)
-- [🤝 Contribution Guidelines](#contribution-guidelines)
-- [📁 Project Structure](#project-structure)
-- [🙌 Credits](#credits)
+## 📚 Table of Contents
+
+- [Features ✨](#features-✨)
+- [Installation 🛠️](#installation-🛠️)
+- [Contribution Guidelines 🤝](#contribution-guidelines-🤝)
+- [Project Structure 📁](#project-structure-📁)
+- [Credits 🙌](#credits-🙌)
 
 ---
 
-## ✨ Features
+## Features ✨
 
 - Minimal and performant Astro-based blog ⚡
 - SEO-friendly (OpenGraph, canonical URLs, sitemap, RSS feed) 🔍
