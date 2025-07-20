@@ -8,17 +8,15 @@ The official blog of **RAID**, the AI & ML society at **IIT Jodhpur**. Built wit
 
 ## 📚 Table of Contents
 
-## 📚 Table of Contents
-
-- [Features ✨](#features-✨)
-- [Installation 🛠️](#installation-🛠️)
-- [Contribution Guidelines 🤝](#contribution-guidelines-🤝)
-- [Project Structure 📁](#project-structure-📁)
-- [Credits 🙌](#credits-🙌)
+- [Features ✨](#features)
+- [Installation 🛠️](#installation)
+- [Contribution Guidelines 🤝](#contribution-guidelines)
+- [Project Structure 📁](#project-structure)
+- [Credits 🙌](#credits)
 
 ---
 
-## Features ✨
+## Features
 
 - Minimal and performant Astro-based blog ⚡
 - SEO-friendly (OpenGraph, canonical URLs, sitemap, RSS feed) 🔍
@@ -28,7 +26,7 @@ The official blog of **RAID**, the AI & ML society at **IIT Jodhpur**. Built wit
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### ✅ Prerequisites
 
@@ -71,7 +69,7 @@ The official blog of **RAID**, the AI & ML society at **IIT Jodhpur**. Built wit
 
 ---
 
-## 🤝 Contribution Guidelines
+## Contribution Guidelines
 
 We welcome contributions! 💡 Please follow these guidelines to keep our community constructive and inclusive 🌟
 
@@ -145,7 +143,7 @@ git push origin your-branch-name
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 ├── public/
@@ -167,7 +165,7 @@ git push origin your-branch-name
 
 ---
 
-## 🙌 Credits
+## Credits
 
 This project is based on the [Astro Blog Starter Kit](https://github.com/withastro/astro/tree/latest/examples/blog) and inspired by [Bear Blog](https://github.com/HermanMartinus/bearblog/) 🐻
 
